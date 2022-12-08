@@ -34,68 +34,16 @@ namespace ManagementEquipment.Controllers
                 conn.Close();
             }
         }
-        static void listAccount()
-        {
-
-            ;
-    
-        }
-        public static string Decrypt(string cipherString, bool useHashing)
-        {
-            byte[] keyArray;
-         
-
-            byte[] toEncryptArray = Convert.FromBase64String(cipherString);
-
-            System.Configuration.AppSettingsReader settingsReader = new AppSettingsReader();
-      
-            string key = (string)settingsReader.GetValue("SecurityKey",typeof(String));
-
-            if (useHashing)
-            {
-               
-                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
-                
-
-                hashmd5.Clear();
-            }
-            else
-            {
-                keyArray = UTF8Encoding.UTF8.GetBytes(key);
-            }
-
-            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
-         
-            tdes.Key = keyArray;
-          
-          
-
-            tdes.Mode = CipherMode.ECB;
-         
-            tdes.Padding = PaddingMode.PKCS7;
-
-            ICryptoTransform cTransform = tdes.CreateDecryptor();
-            byte[] resultArray = cTransform.TransformFinalBlock(
-                                 toEncryptArray, 0, toEncryptArray.Length);
-                     
-            tdes.Clear();
-            return UTF8Encoding.UTF8.GetString(resultArray);
-        }
+       
+     
 
         public IActionResult Index()
         {
             return View();
         }
      
-        public ActionResult PageAdmin()
-        {
-            return View();
-        }
-        public ActionResult PageUser()
-        {
-            return View();
-        }
+       
+      
 
         [HttpPost]
         public ActionResult VerifyLogin(Account acc)
@@ -152,12 +100,12 @@ namespace ManagementEquipment.Controllers
                     
                     if (accounts[i].role.Equals("admin"))
                     {
-                        return RedirectToAction("PageAdmin");
+                        return RedirectToAction("PageAdmin","Admin");
                        // return Json("admin");
                     }
                     else
                     {
-                        return RedirectToAction("PageUser");
+                        return RedirectToAction("PageUser","User");
                       //  return Json("usser");
 
                     }
