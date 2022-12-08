@@ -1,11 +1,11 @@
 ﻿@model ManagementEquipment.Models.Account;
-<h1>User</h1>
+<h1>Admin</h1>
 
 <body>
     <div class="container">
         <form asp-action="VerifyLogin" flex>
             <div asp-validation-summary="All" class="text-danger"></div>
-            <
+           
         </form>
     </div>
 </body>
@@ -15,4 +15,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-    }/h1>
+    }
