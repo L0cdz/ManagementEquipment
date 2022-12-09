@@ -1,17 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ManagementEquipment.Models;
+﻿using ManagementEquipment.Models;
+using Microsoft.AspNetCore.Mvc;
 using MySqlConnector;
-using System.Security.Cryptography;
-using System.Text;
-using System.Data;
-using System.Collections;
-using PagedList;
 
 namespace ManagementEquipment.Controllers
 {
-    public class AdminController : Controller
+    public class ProductUserController : Controller
     {
-        public static List<Equipment> listEquip;
+        public static List<Equipment> listEquip = new List<Equipment>();
         static MySqlConnection conn = null;
         static void Connection()
         {
@@ -36,17 +31,10 @@ namespace ManagementEquipment.Controllers
         {
             return View();
         }
-        public ActionResult managementEquip()
+
+        public ActionResult WatchEquip()
         {
-            return View();
-        }
-        public IEnumerable<Equipment> listall()
-        {
-            return listEquip;
-        }
-        public ActionResult PageAdmin()
-        {
-            
+
             Connection();
             try
             {
@@ -63,6 +51,7 @@ namespace ManagementEquipment.Controllers
                     String img = Reader.GetString("imageUrl");
                     String des = Reader.GetString("description");
                     listEquip.Add(new Equipment { id = idd, name = name, description = des, quality = qual, imageUrl = img });
+
                 }
 
             }
@@ -76,7 +65,8 @@ namespace ManagementEquipment.Controllers
                 conn.Close();
             }
 
-            return View();
+            return View(listEquip);
         }
     }
+
 }

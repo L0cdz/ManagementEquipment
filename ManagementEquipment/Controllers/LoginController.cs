@@ -100,12 +100,12 @@ namespace ManagementEquipment.Controllers
                     
                     if (accounts[i].role.Equals("admin"))
                     {
-                        return RedirectToAction("PageAdmin","Admin");
+                        return RedirectToAction("ManagementEquip","ProductAdmin");
                        // return Json("admin");
                     }
                     else
                     {
-                        return RedirectToAction("PageUser","User");
+                        return RedirectToAction("WatchEquip","ProductUser");
                       //  return Json("usser");
 
                     }

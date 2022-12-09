@@ -2,6 +2,7 @@
 {
     public class Equipment
     {
+       
         public int id { get; set; }
         public string name { get; set; }
 
@@ -10,5 +11,7 @@
         public int quality { get; set; }
 
         public string imageUrl { get; set; }
+     
+
     }
 }
