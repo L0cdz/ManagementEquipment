@@ -4,13 +4,13 @@ using MySqlConnector;
 
 namespace ManagementEquipment.Controllers
 {
-    public class ProductUserController : Controller
+    public class CategoryUserController : Controller
     {
         public static List<Equipment> listEquip = new List<Equipment>();
         static MySqlConnection conn = null;
         static void Connection()
         {
-            String connStr = "server=" + "localhost" + ";" + "user=" + "root" + ";" + "database=" + "devicemanagement" + ";" + "password=" + "" + ";";
+            String connStr = "server=" + "localhost" + ";" + "user=" + "root" + ";" + "database=" + "managementequip" + ";" + "password=" + "" + ";";
             try
             {
                 conn = new MySqlConnection(connStr);
@@ -45,11 +45,11 @@ namespace ManagementEquipment.Controllers
                 while (Reader.Read())
                 {
 
-                    int idd = Reader.GetInt32("idEquip");
+                    int idd = Reader.GetInt32("id");
                     String name = Reader.GetString("name");
+                    String des = Reader.GetString("description");
                     int qual = Reader.GetInt32("quality");
                     String img = Reader.GetString("imageUrl");
-                    String des = Reader.GetString("description");
                     listEquip.Add(new Equipment { id = idd, name = name, description = des, quality = qual, imageUrl = img });
 
                 }
@@ -64,6 +64,7 @@ namespace ManagementEquipment.Controllers
             {
                 conn.Close();
             }
+
 
             return View(listEquip);
         }

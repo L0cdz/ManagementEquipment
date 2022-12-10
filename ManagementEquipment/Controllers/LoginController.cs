@@ -17,7 +17,7 @@ namespace ManagementEquipment.Controllers
         static MySqlConnection conn = null;
         static void Connection()
         {
-            String connStr = "server=" +"localhost"+ ";" + "user=" +"root" + ";" + "database=" + "devicemanagement" + ";" + "password=" +""+ ";";
+            String connStr = "server=" +"localhost"+ ";" + "user=" +"root" + ";" + "database=" + "managementequip" + ";" + "password=" +""+ ";";
             try
             {
                 conn = new MySqlConnection(connStr);
@@ -100,12 +100,12 @@ namespace ManagementEquipment.Controllers
                     
                     if (accounts[i].role.Equals("admin"))
                     {
-                        return RedirectToAction("ManagementEquip","ProductAdmin");
+                        return RedirectToAction("ManagementEquip","CategoryAdmin");
                        // return Json("admin");
                     }
                     else
                     {
-                        return RedirectToAction("WatchEquip","ProductUser");
+                        return RedirectToAction("WatchEquip", "CategoryUser");
                       //  return Json("usser");
 
                     }
