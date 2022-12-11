@@ -7,13 +7,27 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Edit</title>
+    <style>
+        .form-group {
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 60px;
+        }
+
+      
+    </style>
 </head>
 <body>
 
-    <h4>delete</h4>
-    <hr />
+    <h4 style="text-align: center; form-size: 23px; margin-top: 20px; ">DELETE</h4>
+    <hr style="width: 50%; margin: auto;" />
     <div class="row">
-        <div class="col-md-4">
+        <div class="">
             <form asp-action="DeleteEquip">
                 
                 <div class="form-group">
@@ -23,7 +37,7 @@
         </div>
     </div>
 
-    <div>
+    <div style="margin-left: 47%; margin-top: 40px;">
         <a asp-action="ManagementEquip">Back to List</a>
     </div>
 

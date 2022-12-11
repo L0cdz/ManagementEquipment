@@ -7,12 +7,36 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Add</title>
+    <style>
+        .btn {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 10px;
+        }
+
+        input {
+            height: 35px;
+        }
+
+        .form-group {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+      
+    </style>
 </head>
 <body>
 
-    <h4>add</h4>
-    <hr />
-    <div class="row">
+    <h4 style="text-align: center; form-size: 23px; margin-top: 20px; ">ADD</h4>
+    <hr style="width: 50%; margin: auto;"/>
+    <div class="row justify-content-center">
         <div class="col-md-4">
             <form asp-action="AddEquip">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -44,7 +68,7 @@
         </div>
     </div>
 
-    <div>
+    <div style="margin-left: 35%; margin-top: 30px;">
         <a asp-action="ManagementEquip">Back to List</a>
     </div>
 

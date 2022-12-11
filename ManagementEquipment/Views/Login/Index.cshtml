@@ -1,6 +1,29 @@
 ﻿@model ManagementEquipment.Models.Account;
 <h1>Login</h1>
+<style>
+    .container {
+        width: 500px;
+    }
 
+    .form-group {
+        margin-top: 30px;
+    }
+
+    input{
+        height: 50px;
+    }
+
+    label {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 23px;
+        font-weight: 500;
+    }
+</style>
 <body>
     <div class="container">
         <form asp-action="VerifyLogin" flex>
@@ -12,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" placeholder="Password" />
+                <input asp-for="Password" class="form-control" placeholder="Password" type="password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
